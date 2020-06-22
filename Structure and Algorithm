@@ -1,0 +1,63 @@
+数据处理的基本操作只有3个，分别是增、删、查。
+增和删可以细分为在数据结构中间的增和删，以及在数据结构最后的增和删，区别在于原数据的位置是否发生变化。
+查找可以细分为按照位置条件的查找和按照数据数值特征的查找。
+
+在实际的工作中，如果不知道该用什么数据结构的时候，就要从<!--数据需要被处理的动作出发-->
+
+线性链表结构的每个结点，由数据的数值和指向下一个元素的指针构成。
+
+对于增删操作，链表时间复杂度为O（1）。对于查询操作，链表时间复杂度为O（n）。
+
+线性表的价值在于，它对数据的存储方式是连续的。
+
+当数据的元素个数不确定，且需要经常进行数据的新增与删除时，那么链表会比较合适。  <!--链表的翻转、快慢指针的方法-->
+
+数组定义简单，访问方便，但在数组中所有元素类型必须相同，数组的最大长度必须在定义时给出，数组使用的内存空间必须连续。
+
+
+
+栈拥有后进先出的特性,是个限制版的线性表，只允许数据从栈顶进入。顺序栈和链式栈对数据的增删操作时间复杂度O（1）。查找操作时间复杂度为O（n）。在生活中中的应用Browser的前进与后退，括号匹配等。（适用情景：add and delete操作的数据执行顺序具备后来居上的关系时）
+
+队列拥有先进先出的特征性。循环队列与链式队列的增删操作时间复杂度O（1），查找操作时间复杂度为O（n）。
+空间性能方面：循环队列必须有一个固定长度，存在空间浪费。 链式队列更为灵活。
+在可以确定队列长度时，建议使用<循环队列>，无法确定队列长度时，应该考虑<链式队列>
+
+
+
+哈希表中有多少数据，查找、插入、删除，时间复杂度均为O（1）
+HashMap    Map<Integer,Integer> d = new HashMap<>(); ----定义哈希表
+if(d.containsKey(key_str)){
+     d.put(key_str,d.get(key_str)+1);
+}else{
+     d.put(key_str,1);
+}
+System.out.println(d.get(key_str));
+
+Hash表操作过程，哈希函数（一种映射关系）（关键字到地址的映射）   处理冲突采用线性探测表（若位置已被占领，往下挪直到有空位），这种找空位的方法为开放地址法，还有一种链式法来存储key.(key在Hash表不能重复)。
+
+
+二叉树，二叉查找树，完全二叉树，满二叉树（无叶子节点），数的深度，根节点的深度为1，往下数。对数据的增删操作时间复杂度O（1）,查找操作时间复杂度为O（n）。
+顺序存储  X的下标为i,左节点的下标为2*i+1,右节点为2*i+2
+前序遍历:先遍历父节点，
+中序遍历：中间遍历父节点
+后序遍历：最后遍历父节点
+
+
+public static void preOrderTraverse(Node node){
+     if(node==null)   return;
+     System.out.println(node data+"");
+     preOrderTraverse(node.left);
+     preOrderTraverse(node.right);
+}
+public static void inOrderTraverse(Node node){
+     if(node==null)   return;
+     inOrderTraverse(node.left);
+     System.out.println(node data+"");
+     inOrderTraverse(node.right);
+}
+public static void posteOrderTraverse(Node node){
+     if(node==null)   return;
+     postOrderTraverse(node.left);
+     postOrderTraverse(node.right);
+     System.out.println(node data+"");
+}
